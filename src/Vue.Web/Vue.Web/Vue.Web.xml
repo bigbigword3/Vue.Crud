@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vue.Web</name>
+    </assembly>
+    <members>
+        <member name="M:Vue.Web.Controllers.ProductController.GetPageList(Vue.Web.Models.ProductQueryCriteria)">
+            <summary>
+            分页列表
+            </summary>
+            <param name="productQueryCriteria"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vue.Web.Controllers.ProductController.Remove(System.Collections.Generic.List{System.String})">
+            <summary>
+            删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vue.Web.Controllers.ProductController.Get(System.String)">
+            <summary>
+            详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vue.Web.Controllers.ProductController.Modify(Vue.Web.Models.Product)">
+            <summary>
+            修改
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vue.Web.Controllers.ProductController.Create(Vue.Web.Models.Product)">
+            <summary>
+            新增
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
