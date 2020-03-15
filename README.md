@@ -6,4 +6,4 @@ Vue增删改查
 > 后端：http://47.112.212.161:902/swagger
 
 ## 运行效果
-![alt 运行效果]('./markings/view.png')
+![alt 运行效果](markings/view.png)
