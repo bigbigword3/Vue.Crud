@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="app-container">
     <div class="block">
       <el-row :gutter="20">
         <el-col :span="6">
@@ -24,7 +24,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column>
+      <el-table-column label="操作">
         <template slot-scope="scope">
            <el-button type="danger"  size="mini" @click="remove(scope.row)">删除</el-button>
            <el-button type="primary"  size="mini" @click="edit(scope.row)">编辑</el-button>
@@ -32,7 +32,7 @@
       </el-table-column>
     </el-table>
 
-    <el-pagination
+    <el-pagination style="float:right"
       background
       layout="total, sizes, prev, pager, next, jumper"
       :page-sizes="[10, 20, 50, 100,500]"
@@ -48,7 +48,7 @@
 
 
      <el-dialog
-      :title="创建产品"
+      
       :visible.sync="dialogVisible"
       width="70%">
       <el-form ref="form" :model="newProdcut" :rules="rules" label-width="80px">

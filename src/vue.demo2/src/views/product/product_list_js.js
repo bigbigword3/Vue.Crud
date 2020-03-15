@@ -19,10 +19,15 @@ export default {
           loading: true 
       }
     },
+    mounted() {
+      console.log(this.$route.query);
+      console.log(this.$route.params);
+      this.init()
+    },
     created() {
-       console.log(this.$route.query);
-       console.log(this.$route.params);
-       this.init()
+      //console.log(this.$route.query);
+      //console.log(this.$route.params);
+      //this.init()
     },
     methods:{
         init() {
