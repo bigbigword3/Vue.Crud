@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app-container">
         <el-button type="primary">
             <router-link :to="{path:'/',query: {id: 'testQuery'}}">返回列表测试Query</router-link>
         </el-button>
