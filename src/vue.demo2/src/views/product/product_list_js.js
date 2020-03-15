@@ -1,5 +1,4 @@
 import { getProductPageList,createProduct, getProduct, removeProduct} from '@/api/product/product'
-
 export default {
     name: 'product_list',
     data () {

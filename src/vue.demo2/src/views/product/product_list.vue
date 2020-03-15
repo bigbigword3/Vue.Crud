@@ -1,11 +1,11 @@
 <template>
   <div class="app-container">
-    <div class="block">
+    <div class="block" style="margin-bottom:10px">
       <el-row :gutter="20">
         <el-col :span="6">
           <el-input v-model="queryCriteria.name" size="mini" placeholder="产品名称"></el-input>
         </el-col>
-        <el-col :span="8">
+        <el-col :span="18">
           <el-button type="success" size="mini" icon="el-icon-search" @click="search">查询</el-button>
           <el-button type="primary" size="mini" icon="el-icon-refresh" @click="reset">重置</el-button>
           <el-button type="success" size="mini" icon="el-icon-plus" @click="showCreate">新增</el-button>
@@ -14,7 +14,11 @@
       </el-row>
     </div>
 
-     <el-table :data="data" v-loading="loading" element-loading-text="Loading" border fit highlight-current-row
+     <el-table 
+     :data="data"  
+     :row-style="{height:'38px'}"
+     :cell-style="{padding:'0px'}"
+     v-loading="loading" element-loading-text="Loading" border fit highlight-current-row
                                                                   @selection-change="handleSelectionChange">
       <el-table-column  type="selection" width="55">
       </el-table-column>
@@ -24,7 +28,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column label="操作">
+      <el-table-column label="操作" width="200px">
         <template slot-scope="scope">
            <el-button type="danger"  size="mini" @click="remove(scope.row)">删除</el-button>
            <el-button type="primary"  size="mini" @click="edit(scope.row)">编辑</el-button>
