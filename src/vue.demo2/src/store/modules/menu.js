@@ -1,6 +1,8 @@
 import { listForRouter } from '@/api/menu/menu'
 import { traverseRoutes } from '@/utils/route'
 import { constantRoutes } from '@/router'
+import Cookies from 'js-cookie'
+
 const state = {
   routes: [],
   addRoutes: []
@@ -10,6 +12,7 @@ const mutations = {
   SET_ROUTES: (state, routes) => {
     state.addRoutes = routes
     state.routes = constantRoutes.concat(routes)
+    console.log(state.routes);
   }
 }
 

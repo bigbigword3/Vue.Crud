@@ -14,7 +14,6 @@ router.beforeEach(async(to, from, next) => {
   NProgress.start()
   // set page title
   document.title = getPageTitle(to.meta.title)
-
   const accessRoutes  = await store.dispatch('menu/getSideMenus');
   router.addRoutes(accessRoutes)
   next();

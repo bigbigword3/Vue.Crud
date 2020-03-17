@@ -36,8 +36,8 @@ namespace Vue.Web.Controllers
                 {
                     new RouterMenu
                     {
-                         Path="index",
-                         Name="index",
+                         Path="/merchandise/index",
+                         Name="merchandiseIndex",
                          Component="views/Merchandise/index.vue",
                          ParentId=1,
                          Code="01_01",
@@ -49,7 +49,7 @@ namespace Vue.Web.Controllers
                     },
                      new RouterMenu
                     {
-                         Path="category",
+                         Path="/merchandise/category",
                          Name="merchandiseCategory",
                          Component="views/Merchandise/MerchandiseCategory",
                          ParentId=1,

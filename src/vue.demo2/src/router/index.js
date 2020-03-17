@@ -15,15 +15,15 @@ export const constantRoutes = [
     meta:{ title:'前端固定的菜单',icon: 'el-icon-star-off'},
     children: [{
       path: 'index',
-      name: 'product_index',
+      name: 'productIndex',
       component: () => import('@/views/Product/index.vue'),
-      meta: { title: '产品列表',icon: 'el-icon-s-marketing', affix: true }
+      meta: { title: '产品列表',icon: 'el-icon-s-marketing', affix: false }
     },
     {
       path: 'productCategory',
       name: 'productCategory',
       component: () => import('@/views/Product/ProductCategory'),
-      meta: { title: '产品分类',icon: 'el-icon-s-marketing', affix: true }
+      meta: { title: '产品分类',icon: 'el-icon-s-marketing', affix: false }
     },
     {
       path: '/product/detail/:id',
