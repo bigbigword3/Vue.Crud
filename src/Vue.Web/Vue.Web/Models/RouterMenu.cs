@@ -27,5 +27,7 @@ namespace Vue.Web.Models
         public MenuMeta Meta { get; set; }
 
         public List<RouterMenu> Children { get;  set; } = new List<RouterMenu>();
+
+        public string Redirect { get; set; }
     }
 }

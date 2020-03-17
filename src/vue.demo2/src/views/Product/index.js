@@ -1,6 +1,6 @@
 import { getProductPageList,createProduct, getProduct, removeProduct} from '@/api/product/product'
 export default {
-    name: 'product_list',
+    name: 'product_index',
     data () {
       return {
         msg: 'Welcome to Your Vue.js App',

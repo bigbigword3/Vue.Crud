@@ -23,11 +23,11 @@ namespace Vue.Web.Controllers
 
             routerMenus.Add(new RouterMenu
             {
-                Path = "/",
+                Path = "/merchandise",
                 Component = "layout",
                 ID = 1,
                 Code="01",
-              
+                Redirect= "/merchandise/index",
                 Meta=new MenuMeta
                 {
                     Title="后台返回的菜单", Icon= "el-icon-s-platform"
@@ -36,9 +36,9 @@ namespace Vue.Web.Controllers
                 {
                     new RouterMenu
                     {
-                         Path="merchandise_list",
-                         Name="merchandise_list",
-                         Component="views/merchandise/merchandise_list",
+                         Path="index",
+                         Name="index",
+                         Component="views/Merchandise/index.vue",
                          ParentId=1,
                          Code="01_01",
                          PCode="01",
@@ -49,9 +49,9 @@ namespace Vue.Web.Controllers
                     },
                      new RouterMenu
                     {
-                         Path="/merchandise/category",
-                         Name="merchandise_category",
-                         Component="views/merchandise/merchandise_category",
+                         Path="category",
+                         Name="merchandiseCategory",
+                         Component="views/Merchandise/MerchandiseCategory",
                          ParentId=1,
                          Code="01_02",
                          PCode="01",
