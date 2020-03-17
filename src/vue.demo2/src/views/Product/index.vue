@@ -20,15 +20,24 @@
      :cell-style="{padding:'0px'}"
      v-loading="loading" element-loading-text="Loading" border fit highlight-current-row
                                                                   @selection-change="handleSelectionChange">
-      <el-table-column  type="selection" width="55">
+      <el-table-column  type="selection">
       </el-table-column>
-      <el-table-column label="产品名称">
+      <el-table-column label="产品名称" >
         <template slot-scope="scope">
           {{scope.row.name}}
         </template>
       </el-table-column>
-
-      <el-table-column label="操作" width="200px">
+        <el-table-column label="分类" >
+        <template >
+         
+        </template>
+      </el-table-column>
+        <el-table-column label="单价" >
+        <template >
+         
+        </template>
+      </el-table-column>
+      <el-table-column label="操作" >
         <template slot-scope="scope">
            <el-button type="danger"  size="mini" @click="remove(scope.row)">删除</el-button>
            <el-button type="primary"  size="mini" @click="edit(scope.row)">编辑</el-button>
