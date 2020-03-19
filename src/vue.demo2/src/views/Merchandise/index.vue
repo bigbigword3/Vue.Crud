@@ -1,53 +1,49 @@
 <template>
   <div class="app-container">
     <h1>商品信息</h1>
-<el-table 
-    :data="tableData"
-     :row-style="{height:'38px'}"
-     :cell-style="{padding:'0px'}"
-     v-loading="loading" element-loading-text="Loading" border fit highlight-current-row
-     style="width: 100%"
-    >
-    <el-table-column  type="selection" >
-    </el-table-column>
-    <el-table-column
-      prop="date"
-      label="日期"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="name"
-      label="姓名"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="address"
-      label="地址">
-    </el-table-column>
-  </el-table>
+ 
+    <div style="border:1px solid black">
+      测试Promise:
+      <div>
+        操作人{{who}},改变了商品名称:{{merchandiseName}} <el-button @click="changeMerchandiseNameSync" type="primary">changeMerchandiseNameSync</el-button>
+      </div>
+      <div style="margin-top:10px">
+        操作人{{who}},改变了商品名称:{{merchandiseName}} <el-button @click="changeMerchandiseNameAsync" type="primary">changeMerchandiseNameAsync</el-button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
   export default {
     data() {
       return {
-        tableData: [{
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1517 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1519 弄'
-        }, {
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1516 弄'
-        }]
+         merchandiseName:'default',
+         who:'default'
+      }
+    },
+    methods:{
+
+      changeMerchandiseNameAsync(){
+        this.requestMerchandiseName().then(responseMesssage=>{
+         this.merchandiseName=responseMesssage;
+        });
+        //不会等待requestMerchandiseName方法执行完
+        this.who='张三';
+      },
+
+      async changeMerchandiseNameSync(){
+        const responseMesssage = await this.requestMerchandiseName();
+        this.merchandiseName=responseMesssage;
+        //等待requestMerchandiseName方法执行完再执行下面代码
+        this.who='张三';
+      },
+
+      requestMerchandiseName(){
+        return new Promise((resolver,reject)=>{
+          setTimeout(() => {
+           resolver('i am learning');
+          }, (3000));
+        })
       }
     }
   }
