@@ -49,6 +49,12 @@ export const constantRoutes = [
       name: 'scss',
       component: () => import('@/views/VueLearn/Scss.vue'),
       meta: { title: 'Scss学习',icon: 'el-icon-milk-tea', affix: false }
+    },
+    {
+      path: 'lang',
+      name: 'lang',
+      component: () => import('@/views/VueLearn/lang.vue'),
+      meta: { title: 'Lang-i18n',icon: 'el-icon-milk-tea', affix: false }
     }]
   }
 ]
