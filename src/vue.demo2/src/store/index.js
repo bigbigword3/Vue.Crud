@@ -11,7 +11,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   modules: {
     app,
-    settings,
+    settings:settings,
     tagsView,
     menu
   },

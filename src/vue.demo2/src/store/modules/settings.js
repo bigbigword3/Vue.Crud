@@ -23,10 +23,17 @@ const actions = {
   }
 }
 
+const getters = {
+  tagsViewGetter (state, getters, rootState, rootGetters){
+    return state.tagsView;
+  }
+}
+
 export default {
   namespaced: true,
   state,
   mutations,
-  actions
+  actions,
+  getters
 }
 

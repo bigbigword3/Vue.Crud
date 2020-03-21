@@ -32,6 +32,24 @@ export const constantRoutes = [
       component: () => import('@/views/Product/ProductDetail'),
       meta: { title: '产品详情',icon: 'el-icon-s-flag',  affix: false }
     }]
+  },
+  {
+    path: '/vue',
+    component: Layout,
+    redirect: 'vueIndex',
+    meta:{ title:'Vue前端资料菜单',icon: 'el-icon-star-off'},
+    children: [{
+      path: 'index',
+      name: 'vueIndex',
+      component: () => import('@/views/VueLearn/index.vue'),
+      meta: { title: 'Vuex状态',icon: 'el-icon-ice-tea', affix: false }
+    },
+    {
+      path: 'scss',
+      name: 'scss',
+      component: () => import('@/views/VueLearn/Scss.vue'),
+      meta: { title: 'Scss学习',icon: 'el-icon-milk-tea', affix: false }
+    }]
   }
 ]
 
