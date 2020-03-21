@@ -55,6 +55,12 @@ export const constantRoutes = [
       name: 'lang',
       component: () => import('@/views/VueLearn/lang.vue'),
       meta: { title: 'Lang-i18n',icon: 'el-icon-milk-tea', affix: false }
+    },
+    {
+      path: 'localStore',
+      name: 'localStore',
+      component: () => import('@/views/VueLearn/LocalStore.vue'),
+      meta: { title: 'LocalStore',icon: 'el-icon-milk-tea', affix: false }
     }]
   }
 ]
