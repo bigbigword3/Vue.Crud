@@ -61,7 +61,6 @@
 
 
      <el-dialog
-      
       :visible.sync="dialogVisible"
       width="70%">
       <el-form ref="form" :model="newProdcut" :rules="rules" label-width="80px">
