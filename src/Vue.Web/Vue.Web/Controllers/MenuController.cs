@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vue.Web.Models;
@@ -10,6 +11,7 @@ namespace Vue.Web.Controllers
 {
     [Route("api/menus")]
     [ApiController]
+    [Authorize]
     public class MenuController : ControllerBase
     {
         /// <summary>

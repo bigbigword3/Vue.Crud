@@ -54,7 +54,35 @@ namespace Vue.Web
                 options.OperationFilter<AddResponseHeadersFilter>();
                 options.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
+                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows()
+                    {
+                        Implicit = new OpenApiOAuthFlow()
+                        {
+                            AuthorizationUrl = new Uri($"{Configuration.GetValue<string>("IdeneityServerHostAddress")}/connect/authorize"),
+                            TokenUrl = new Uri($"{Configuration.GetValue<string>("IdeneityServerHostAddress")}/connect/token"),
+                            Scopes = new Dictionary<string, string>()
+                            {
+                                { "vue.api", "vue.api" }
+                            }
+                        }
+                    }
+                });
             });
+
+            services.AddAuthentication("Bearer")
+            .AddIdentityServerAuthentication(options =>
+            {
+               options.Authority = Configuration.GetSection("IdeneityServerHostAddress").Value;
+               options.ApiSecret = "secret";
+               options.ApiName = "vue.api";
+               options.SaveToken = false;
+               options.RequireHttpsMetadata = false;
+            });
+
             services.AddControllers();
         }
 
@@ -75,6 +103,8 @@ namespace Vue.Web
             {
                 var applicationName = "Vue.Web";
                 options.SwaggerEndpoint($"{ (!string.IsNullOrEmpty(pathBase) ? pathBase : string.Empty) }/swagger/v1/swagger.json", applicationName);
+                options.OAuthClientId("vue.api.swaggerui");
+                options.OAuthAppName("vue.api.swaggerui");
             });
 
             app.UseRouting();
@@ -82,8 +112,8 @@ namespace Vue.Web
             //ÔÊÐí¿çÓò
             app.UseCors(CorsExtension.CORS_POLICY_NAME);
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
           
             app.UseEndpoints(endpoints =>
             {
