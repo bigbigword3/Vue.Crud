@@ -71,6 +71,9 @@ namespace IdentityServer
 
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseIdentityServer();
 
             app.UseEndpoints(configure=> { configure.MapDefaultControllerRoute(); });

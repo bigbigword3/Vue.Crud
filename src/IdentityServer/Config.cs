@@ -5,6 +5,7 @@
 using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -62,19 +63,21 @@ namespace IdentityServer
                     RequireClientSecret = false,
                     AllowAccessTokensViaBrowser=true,
                     AlwaysIncludeUserClaimsInIdToken=true,
-                    RedirectUris =           { 
+                    AccessTokenLifetime=(int)TimeSpan.FromHours(2).TotalSeconds,
+                    RefreshTokenUsage= TokenUsage.OneTimeOnly,
+                    RedirectUris =           {
                         "http://localhost:8080/oidc-callback" ,
-                        "http://localhost:8080/silent-renew-oidc.html",
-                        "http://47.112.212.161:900/oidc-callback" ,
-                        "http://47.112.212.161:900/silent-renew-oidc.html"
+                        "http://localhost:8080/silent-renew-oidc",
+                        "http://47.112.212.161:901/oidc-callback" ,
+                        "http://47.112.212.161:901/silent-renew-oidc"
                     },
                     PostLogoutRedirectUris = {
-                        "http://47.112.212.161:900/index.html",
-                        "http://localhost:8080/index.html"
+                        "http://47.112.212.161:901/index",
+                        "http://localhost:8080/index"
                     },
-                    AllowedCorsOrigins =     { 
+                    AllowedCorsOrigins =     {
                         "http://localhost:8080",
-                        "http://47.112.212.161:900"
+                        "http://47.112.212.161:901"
                     },
                     AllowOfflineAccess=true,
                     AllowedScopes =
@@ -84,6 +87,7 @@ namespace IdentityServer
                          IdentityServerConstants.StandardScopes.OfflineAccess,
                         "vue.api"
                     }
+
                 },
                  new Client
                   {
@@ -100,7 +104,7 @@ namespace IdentityServer
                          IdentityServerConstants.StandardScopes.Profile,
                          "vue.api"
                      },
-                     RedirectUris = { 
+                     RedirectUris = {
                          "http://localhost:5000/swagger/oauth2-redirect.html",
                          "http://47.112.212.161:901/swagger/oauth2-redirect.html",
                      },
@@ -108,6 +112,7 @@ namespace IdentityServer
                      AllowRememberConsent=true,
                      AllowOfflineAccess = true,
                      AlwaysIncludeUserClaimsInIdToken  = true
+
                  }
             };
         }

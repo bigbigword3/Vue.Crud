@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-/* Layout */
 import Layout from '@/layout'
+
+import { vuexOidcCreateRouterMiddleware } from 'vuex-oidc'//oidc
+import store from '@/store'
 
 Vue.use(Router)
 
@@ -33,6 +35,31 @@ export const constantRoutes = [
       meta: { title: '产品详情',icon: 'el-icon-s-flag',  affix: false }
     }]
   },
+  { 
+    path: '/oidc-callback', //oidc
+    component: () => import('@/views/Oidc/OidcCallback.vue'),
+    name: "oidcCallback" ,
+    hidden:true,
+  },
+  {
+      path: '/oidc-callback-error',//oidc
+      name: 'oidcCallbackError',
+      component: () => import('@/views/Oidc/OidcCallbackError.vue'),
+      meta: {
+          isPublic: true
+      },
+      hidden:true
+  },
+  {
+    path: '/oidc-silent-renew',//oidc
+    name: 'oidcSilentRenew',
+    component: () => import('@/views/Oidc/OidcSilentRenew.vue'),
+    meta: {
+        isPublic: true
+    },
+    hidden:true
+  },
+
   {
     path: '/vue',
     component: Layout,
@@ -67,10 +94,13 @@ export const constantRoutes = [
 
 const createRouter = () => new Router({
   scrollBehavior: () => ({ y: 0 }),
+  mode: 'history',
   routes: constantRoutes
 })
 
 const router = createRouter()
+
+router.beforeEach(vuexOidcCreateRouterMiddleware(store))//oidc
 
 export function resetRouter() {
   const newRouter = createRouter()

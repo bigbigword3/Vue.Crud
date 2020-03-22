@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters,mapActions } from 'vuex'
   import Breadcrumb from '@/components/Breadcrumb'
   import Hamburger from '@/components/Hamburger'
   import LangSelect from '@/components/LangSelect'
@@ -49,17 +49,19 @@ export default {
   computed: {
     ...mapGetters([
       'sidebar',
-      'avatar'
+      'avatar',
+      'oidcUser'
     ])
   },
   methods: {
+    ...mapActions([
+      'signOutOidc'
+    ]),
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
-    async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push('/login')
-
+    logout() {
+      this.signOutOidc();
     }
   }
 }
