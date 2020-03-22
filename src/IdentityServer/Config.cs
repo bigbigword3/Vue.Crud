@@ -106,7 +106,7 @@ namespace IdentityServer
                      },
                      RedirectUris = {
                          "http://localhost:5000/swagger/oauth2-redirect.html",
-                         "http://47.112.212.161:901/swagger/oauth2-redirect.html",
+                         "http://47.112.212.161:902/swagger/oauth2-redirect.html",
                      },
                      RequireConsent=false,
                      AllowRememberConsent=true,
