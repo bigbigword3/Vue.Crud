@@ -11,5 +11,6 @@ module.exports = merge(prodEnv, {
 */
   VUE_APP_BASE_API:'"http://47.112.212.161:902"',
   CURRENT_WEB:'"http://localhost:8080"',
-  AUTHORITY:'"http://47.112.212.161:903"'
+  AUTHORITY:'"http://47.112.212.161:903"',
+  PRODUCT_HOST:'"http://localhost:9080"'
 })

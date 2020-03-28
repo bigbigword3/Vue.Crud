@@ -95,3 +95,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.nest-menu{
+  text-align: left !important;
+}
+</style>

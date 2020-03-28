@@ -80,7 +80,7 @@ export const constantRoutes = [
     {
       path: 'lang',
       name: 'lang',
-      component: () => import('@/views/VueLearn/lang.vue'),
+      component: () => import('@/views/VueLearn/Lang.vue'),
       meta: { title: 'Lang-i18n',icon: 'el-icon-milk-tea', affix: false }
     },
     {
@@ -88,7 +88,26 @@ export const constantRoutes = [
       name: 'localStore',
       component: () => import('@/views/VueLearn/LocalStore.vue'),
       meta: { title: 'LocalStore',icon: 'el-icon-milk-tea', affix: false }
-    }]
+    },
+    {
+      path: 'directive',
+      name: 'directive',
+      component: () => import('@/views/VueLearn/Directive.vue'),
+      meta: { title: 'Directive指令',icon: 'el-icon-milk-tea', affix: false }
+    },
+    {
+      path: 'api',
+      name: 'api',
+      component: () => import('@/views/VueLearn/Api.vue'),
+      meta: { title: 'Api学习',icon: 'el-icon-milk-tea', affix: false }
+    },
+    {
+      path: 'productIframe',
+      name: 'productIframe',
+      component: () => import('@/views/VueLearn/ProductIframe.vue'),
+      meta: { title: 'Iframe学习',icon: 'el-icon-milk-tea', affix: false }
+    }
+  ]
   }
 ]
 

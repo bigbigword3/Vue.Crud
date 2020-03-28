@@ -14,7 +14,7 @@ $color:red;
 $border:solid 1px black;
 div 
 {
-   @import "vuelearn";
+   @import "scss";
 }
 div 
 {
